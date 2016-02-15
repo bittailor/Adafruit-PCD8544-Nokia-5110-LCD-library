@@ -38,6 +38,7 @@ All text above, and the splash screen below must be included in any redistributi
 #include "Adafruit_PCD8544.h"
 
 // the memory buffer for the LCD
+/*
 uint8_t pcd8544_buffer[LCDWIDTH * LCDHEIGHT / 8] = {
 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
@@ -72,7 +73,7 @@ uint8_t pcd8544_buffer[LCDWIDTH * LCDHEIGHT / 8] = {
 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
 };
-
+*/
 
 // reduces how much is refreshed, which speeds it up!
 // originally derived from Steve Evans/JCW's mod but cleaned up and
@@ -95,7 +96,7 @@ static void updateBoundingBox(uint8_t xmin, uint8_t ymin, uint8_t xmax, uint8_t 
 }
 
 Adafruit_PCD8544::Adafruit_PCD8544(int8_t SCLK, int8_t DIN, int8_t DC,
-    int8_t CS, int8_t RST) : Adafruit_GFX(LCDWIDTH, LCDHEIGHT) {
+    int8_t CS, int8_t RST) : Adafruit_GFX(LCDWIDTH, LCDHEIGHT), pcd8544_buffer() {
   _din = DIN;
   _sclk = SCLK;
   _dc = DC;
@@ -104,7 +105,7 @@ Adafruit_PCD8544::Adafruit_PCD8544(int8_t SCLK, int8_t DIN, int8_t DC,
 }
 
 Adafruit_PCD8544::Adafruit_PCD8544(int8_t SCLK, int8_t DIN, int8_t DC,
-    int8_t RST) : Adafruit_GFX(LCDWIDTH, LCDHEIGHT) {
+    int8_t RST) : Adafruit_GFX(LCDWIDTH, LCDHEIGHT), pcd8544_buffer() {
   _din = DIN;
   _sclk = SCLK;
   _dc = DC;

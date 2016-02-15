@@ -89,6 +89,7 @@ class Adafruit_PCD8544 : public Adafruit_GFX {
   uint8_t getPixel(int8_t x, int8_t y);
 
  private:
+  uint8_t pcd8544_buffer[LCDWIDTH * LCDHEIGHT / 8];
   int8_t _din, _sclk, _dc, _rst, _cs;
   volatile PortReg  *mosiport, *clkport;
   PortMask mosipinmask, clkpinmask;
